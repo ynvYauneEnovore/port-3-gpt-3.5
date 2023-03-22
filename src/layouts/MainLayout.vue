@@ -28,13 +28,7 @@
 
           <div class="text-subtitle1 q-mt-md q-mb-xs">Yovan R. Y. E.</div>
 
-          <q-btn
-            color="primary"
-            label="Logout"
-            push
-            size="sm"
-            v-close-popup
-          />
+          
         </div>
       </div>
     </q-btn-dropdown>
