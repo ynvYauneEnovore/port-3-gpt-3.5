@@ -13,7 +13,7 @@
       padding
       arrows
       height="300px"
-      class="bg-primary text-white shadow-1 rounded-borders"
+      class="bg-dark text-white shadow-1 rounded-borders"
     >
       <template v-slot:navigation-icon="{ active, btnProps, onClick }">
         <q-btn v-if="active" size="lg" icon="home" color="yellow" flat round dense @click="onClick" />
@@ -21,15 +21,13 @@
       </template>
 
       <q-carousel-slide name="style" class="column no-wrap flex-center">
-        <q-icon name="style" size="56px" />
+        <img src="img/logo.png" :height="290">
         <div class="q-mt-md text-center">
-          {{ lorem1 }}
         </div>
       </q-carousel-slide>
       <q-carousel-slide name="tv" class="column no-wrap flex-center">
-        <q-icon name="live_tv" size="56px" />
+        <img src="img/v.png" :height="290">
         <div class="q-mt-md text-center">
-          {{ lorem2 }}
         </div>
       </q-carousel-slide>
       <q-carousel-slide name="layers" class="column no-wrap flex-center">
@@ -62,105 +60,7 @@
       </q-card-section>
     </q-card>
 
-    <q-layout view="lHh Lpr lFf" container style="height: 400px" class="shadow-2 rounded-borders">
-      <q-header reveal elevated>
-        <q-toolbar>
-          <q-btn flat round dense icon="menu" @click="drawerLeft = !drawerLeft" />
-
-          <q-toolbar-title>
-            <strong>Quasar</strong> Framework
-          </q-toolbar-title>
-
-          <q-btn flat round dense icon="menu" @click="drawerRight = !drawerRight" />
-        </q-toolbar>
-      </q-header>
-
-      <q-drawer
-        v-model="drawerLeft"
-        :width="150"
-        :breakpoint="700"
-        behavior="desktop"
-        bordered
-        class="bg-grey-3"
-      >
-        <q-scroll-area class="fit">
-          <div class="q-pa-sm">
-            <div v-for="n in 50" :key="n">Drawer {{ n }} / 50</div>
-          </div>
-        </q-scroll-area>
-      </q-drawer>
-
-      <q-drawer
-        side="right"
-        v-model="drawerRight"
-        bordered
-        :width="150"
-        :breakpoint="500"
-        behavior="desktop"
-        class="bg-grey-3"
-      >
-        <q-scroll-area class="fit">
-          <div class="q-pa-sm">
-            <div v-for="n in 50" :key="n">Drawer {{ n }} / 50</div>
-          </div>
-        </q-scroll-area>
-      </q-drawer>
-
-      <q-page-container>
-        <q-page padding style="padding-top: 66px">
-          <p v-for="n in 15" :key="n">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a adipisci, dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos numquam rerum delectus commodi perferendis voluptate?
-          </p>
-          <div class="q-pa-md q-gutter-md">
-    <div class="row justify-center">
-      <div class="row items-center q-gutter-x-sm">
-        <q-radio v-model="targetEl" :val="false" label="false (no target whatsoever)" />
-        <q-radio v-model="targetEl" :val="true" label="true (original parent)" />
-        <q-radio v-model="targetEl" val="#target-img-1" label="#target-img-1" />
-        <q-radio v-model="targetEl" val="#target-img-2" label="#target-img-2" />
-        <q-radio v-model="targetEl" val="#bogus" label="#bogus" />
-      </div>
-    </div>
-    <div class="row justify-center">
-      <q-img src="https://cdn.quasar.dev/img/material.png" id="target-img-1" style="height: 100px">
-        <div class="absolute-bottom-right" style="border-top-left-radius: 5px">#target-img-1</div>
-      </q-img>
-      <q-img src="https://cdn.quasar.dev/img/parallax2.jpg" id="target-img-2" style="height: 100px">
-        <div class="absolute-bottom-right" style="border-top-left-radius: 5px">#target-img-2</div>
-      </q-img>
-      <q-img src="https://cdn.quasar.dev/img/blueish.jpg" style="height: 100px">
-        <div class="absolute-bottom-right" style="border-top-left-radius: 5px">Original parent</div>
-        <q-menu touch-position :target="targetEl">
-          <q-list>
-            <q-item
-              v-for="n in 5"
-              :key="n"
-              v-close-popup
-              clickable
-            >
-              <q-item-section>Label</q-item-section>
-            </q-item>
-          </q-list>
-        </q-menu>
-      </q-img>
-    </div>
-  </div>
-
-
-          <!-- place QPageSticky at end of page -->
-          <q-page-sticky expand position="top">
-            <q-toolbar class="bg-accent text-white">
-              <q-avatar>
-                <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
-              </q-avatar>
-              <q-toolbar-title>
-                Articulo [Yovan Ramón Yaune Enovore]
-              </q-toolbar-title>
-            </q-toolbar>
-          </q-page-sticky>
-        </q-page>
-      </q-page-container>
-    </q-layout>
+ 
     <q-video
       :ratio="16/9"
       src="https://www.youtube.com/embed/ml-npkj_LxM"
@@ -186,7 +86,7 @@
   <div class="q-pa-md">
     <q-parallax>
       <template v-slot:media>
-        <img src="img/yovan-1.png">
+        <img src="img/card-3.png">
       </template>
 
       <template v-slot:content="scope">
@@ -199,10 +99,10 @@
             right: 0
           }"
         >
-          <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" style="width: 150px; height: 150px">
-          <div class="text-h3 text-white text-center">Quasar Framework</div>
+          <img src="img/v.png" style="width: 150px; height: 150px">
+          <div class="text-h3 text-white text-center">Portafolio - Personal - Yovan</div>
           <div class="text-h6 text-grey-3 text-center">
-            v{{ $q.version }}
+            v3.0.4
           </div>
         </div>
       </template>
@@ -262,6 +162,116 @@
       </template>
     </q-splitter>
   </div>
+
+
+  <div class="q-pa-md">
+    <q-card class="my-card">
+      <q-video src="https://www.youtube.com/embed/k3_tw44QsZQ?rel=0" />
+
+      <q-card-section>
+        <div class="text-h6">Our Changing Planet</div>
+        <div class="text-subtitle2">by John Doe</div>
+      </q-card-section>
+
+      <q-card-section class="q-pt-none">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </q-card-section>
+    </q-card>
+  </div>
+
+  <div class="q-pa-md row items-start q-gutter-md">
+    <q-card class="my-card" flat bordered>
+      <q-card-section horizontal>
+        <q-card-section class="q-pt-xs">
+          <div class="text-overline">Overline</div>
+          <div class="text-h5 q-mt-sm q-mb-xs">Title</div>
+          <div class="text-caption text-grey">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </div>
+        </q-card-section>
+
+        <q-card-section class="col-5 flex flex-center">
+          <q-img
+            class="rounded-borders"
+            src="https://cdn.quasar.dev/img/parallax2.jpg"
+          />
+        </q-card-section>
+      </q-card-section>
+
+      <q-separator />
+
+      <q-card-actions>
+        <q-btn flat round icon="event" />
+        <q-btn flat>
+          7:30PM
+        </q-btn>
+        <q-btn flat color="primary">
+          Reserve
+        </q-btn>
+      </q-card-actions>
+    </q-card>
+
+    <q-card class="my-card" flat bordered>
+      <q-item>
+        <q-item-section avatar>
+          <q-avatar>
+            <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+          </q-avatar>
+        </q-item-section>
+
+        <q-item-section>
+          <q-item-label>Title</q-item-label>
+          <q-item-label caption>
+            Subhead
+          </q-item-label>
+        </q-item-section>
+      </q-item>
+
+      <q-separator />
+
+      <q-card-section horizontal>
+        <q-card-section>
+          {{ lorem }}
+        </q-card-section>
+
+        <q-separator vertical />
+
+        <q-card-section class="col-4">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </q-card-section>
+      </q-card-section>
+    </q-card>
+
+    <q-card class="my-card">
+      <q-card-section horizontal>
+        <q-img
+          class="col-5"
+          src="https://cdn.quasar.dev/img/parallax1.jpg"
+        />
+
+        <q-card-section>
+          {{ lorem }}
+        </q-card-section>
+      </q-card-section>
+
+      <q-separator />
+
+      <q-card-actions>
+        <q-btn flat round icon="event" />
+        <q-btn flat>
+          5:30PM
+        </q-btn>
+        <q-btn flat>
+          7:00PM
+        </q-btn>
+        <q-btn flat color="primary">
+          Reserve
+        </q-btn>
+      </q-card-actions>
+    </q-card>
+  </div>
+
   
   <q-footer reveal elevated class="bg-dark -8 text-white">
       <q-toolbar>
