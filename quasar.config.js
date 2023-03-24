@@ -93,7 +93,7 @@ module.exports = configure(function (ctx) {
     framework: {
       config: {},
 
-      // iconSet: 'material-icons', // Quasar icon set
+       iconSet: 'material-icons', // Quasar icon set
       // lang: 'en-US', // Quasar language pack
 
       // For special cases outside of where the auto-import strategy can have an impact
@@ -152,12 +152,12 @@ module.exports = configure(function (ctx) {
       
 
       manifest: {
-        name: `mobilerport-3`,
-        short_name: `mobilerport-3`,
+        name: `portafolio-3`,
+        short_name: `portafolio-3`,
         description: `portafolio personal`,
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#ffffff',
+        background_color: '#000000',
         theme_color: '#027be3',
         icons: [
           {

@@ -1,8 +1,8 @@
 <template>
-  <q-page class="">
-    <div class="q-pa-md">
-      <div class="q-pa-md">
-    <q-carousel
+   <div class="row">
+      <div class="col-md-9 col-12">
+
+        <q-carousel
       v-model="slide"
       transition-prev="scale"
       transition-next="scale"
@@ -19,6 +19,7 @@
         <q-btn v-if="active" size="lg" icon="home" color="yellow" flat round dense @click="onClick" />
         <q-btn v-else size="sm" :icon="btnProps.icon" color="white" flat round dense @click="onClick" />
       </template>
+    
 
       <q-carousel-slide name="style" class="column no-wrap flex-center">
         <img src="img/logo.png" :height="290">
@@ -43,8 +44,87 @@
         </div>
       </q-carousel-slide>
     </q-carousel>
-  </div>
+
+      </div>
+      <div class="col-md-3 col-12">
+
+        <q-card class="my-card" flat bordered>
+      <q-item>
+        <q-item-section avatar>
+          <q-avatar>
+            <img src="img/perf.png">
+          </q-avatar>
+        </q-item-section>
+
+        <q-item-section>
+          <q-item-label>Desarrollador:</q-item-label>
+          <q-item-label caption>
+            @ramonenovore
+          </q-item-label>
+        </q-item-section>
+      </q-item>
+
+      <q-separator />
+
+      <q-card-section horizontal>
+        <q-card-section>
+          {{ lorem }}
+        </q-card-section>
+
+        <q-separator vertical />
+
+        <q-card-section class="col">
+          "Soy un desarrollador de software creativo y enfocado en los detalles, con una sólida formación técnica 
+          y experiencia en la creación de soluciones tecnológicas para una variedad de necesidades empresariales."
+        </q-card-section>
+      </q-card-section>
+    </q-card>
+        
+      </div>
+    </div>
+  <q-page class="">
+    <div class="q-pa-md">
   
+  <div class="q-pa-md row items-start q-gutter-md">
+    <q-card class="my-card" flat bordered>
+      <q-img
+        src="https://cdn.quasar.dev/img/parallax2.jpg"
+      />
+
+      <q-card-section>
+        <div class="text-overline text-orange-9">Overline</div>
+        <div class="text-h5 q-mt-sm q-mb-xs">Title</div>
+        <div class="text-caption text-grey">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </div>
+      </q-card-section>
+
+      <q-card-actions>
+        <q-btn flat color="dark" label="Share" />
+        <q-btn flat color="primary" label="Book" />
+
+        <q-space />
+
+        <q-btn
+          color="grey"
+          round
+          flat
+          dense
+          :icon="expanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
+          @click="expanded = !expanded"
+        />
+      </q-card-actions>
+
+      <q-slide-transition>
+        <div v-show="expanded">
+          <q-separator />
+          <q-card-section class="text-subitle2">
+            {{ lorem1 }}
+          </q-card-section>
+        </div>
+      </q-slide-transition>
+    </q-card>
+
     <q-card class="my-card">
       <q-parallax
         src="img/yovan-1.png"
@@ -59,6 +139,12 @@
         </q-avatar>
       </q-card-section>
     </q-card>
+   
+
+  </div>
+
+
+    
 
  
     <q-video
@@ -69,18 +155,6 @@
   </div>
   </q-page>
 
-  <div class="q-pa-md">
-    <q-parallax :height="150">
-      <template v-slot:media>
-        <video width="720" height="440" poster="https://cdn.quasar.dev/img/polina.jpg" autoplay loop muted>
-          <source type="video/webm" src="https://cdn.quasar.dev/img/polina.webm">
-          <source type="video/mp4" src="https://cdn.quasar.dev/img/polina.mp4">
-        </video>
-      </template>
-
-      <h3 class="text-white">Video</h3>
-    </q-parallax>
-  </div>
   
 
   <div class="q-pa-md">
@@ -134,27 +208,61 @@
           transition-prev="jump-up"
           transition-next="jump-up"
         >
-          <q-tab-panel name="Relax Hotel">
-            <div class="text-h4 q-mb-md">Welcome</div>
+          <q-tab-panel name="Habilidades">
+            <div class="text-h4 q-mb-md">Habilidades</div>
+            
+            <div class="relative-position">
+    <div class="example-area q-pa-lg scroll">
+      <div class="example-filler" />
+
+      <q-list>
+        <q-item
+          v-for="n in 5"
+          :key="n"
+          :data-id="n"
+          class="q-my-md q-pa-sm bg-grey-3"
+          v-intersection="onIntersection"
+        >
+          <q-item-section class="text-center" style="background: #eee">
+            Item #{{ n }}
+          </q-item-section>
+          <q-item-section class="text-center" style="background: #eee">
+            Item #{{ n }}
+          </q-item-section>
+          <q-item-section class="text-center" style="background: #eee">
+            Item #{{ n }}
+          </q-item-section>
+        </q-item>
+      </q-list>
+
+      <div class="example-filler" />
+    </div>
+
+    <div class="example-state bg-primary text-white overflow-hidden rounded-borders text-center absolute-top-left q-ma-md q-pa-sm">
+      <transition-group v-if="inView.length > 0" name="in-view" tag="ul">
+        <li v-for="i in inView" :key="i" class="in-view-item">
+          {{i}}
+        </li>
+      </transition-group>
+    </div>
+  </div>
+             </q-tab-panel>
+
+          <q-tab-panel name="Códigos">
+            <div class="text-h4 q-mb-md">Códigos</div>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
           </q-tab-panel>
 
-          <q-tab-panel name="Food">
-            <div class="text-h4 q-mb-md">Food</div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
-          </q-tab-panel>
-
-          <q-tab-panel name="Room service">
-            <div class="text-h4 q-mb-md">Room service</div>
+          <q-tab-panel name="Fraemworks">
+            <div class="text-h4 q-mb-md">Fraemworks</div>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
           </q-tab-panel>
 
-          <q-tab-panel name="Room view">
-            <div class="text-h4 q-mb-md">Room view</div>
+          <q-tab-panel name="Librerías">
+            <div class="text-h4 q-mb-md">Librerías</div>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
           </q-tab-panel>
@@ -164,119 +272,11 @@
   </div>
 
 
-  <div class="q-pa-md">
-    <q-card class="my-card">
-      <q-video src="https://www.youtube.com/embed/k3_tw44QsZQ?rel=0" />
-
-      <q-card-section>
-        <div class="text-h6">Our Changing Planet</div>
-        <div class="text-subtitle2">by John Doe</div>
-      </q-card-section>
-
-      <q-card-section class="q-pt-none">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </q-card-section>
-    </q-card>
-  </div>
-
-  <div class="q-pa-md row items-start q-gutter-md">
-    <q-card class="my-card" flat bordered>
-      <q-card-section horizontal>
-        <q-card-section class="q-pt-xs">
-          <div class="text-overline">Overline</div>
-          <div class="text-h5 q-mt-sm q-mb-xs">Title</div>
-          <div class="text-caption text-grey">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </div>
-        </q-card-section>
-
-        <q-card-section class="col-5 flex flex-center">
-          <q-img
-            class="rounded-borders"
-            src="https://cdn.quasar.dev/img/parallax2.jpg"
-          />
-        </q-card-section>
-      </q-card-section>
-
-      <q-separator />
-
-      <q-card-actions>
-        <q-btn flat round icon="event" />
-        <q-btn flat>
-          7:30PM
-        </q-btn>
-        <q-btn flat color="primary">
-          Reserve
-        </q-btn>
-      </q-card-actions>
-    </q-card>
-
-    <q-card class="my-card" flat bordered>
-      <q-item>
-        <q-item-section avatar>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png">
-          </q-avatar>
-        </q-item-section>
-
-        <q-item-section>
-          <q-item-label>Title</q-item-label>
-          <q-item-label caption>
-            Subhead
-          </q-item-label>
-        </q-item-section>
-      </q-item>
-
-      <q-separator />
-
-      <q-card-section horizontal>
-        <q-card-section>
-          {{ lorem }}
-        </q-card-section>
-
-        <q-separator vertical />
-
-        <q-card-section class="col-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </q-card-section>
-      </q-card-section>
-    </q-card>
-
-    <q-card class="my-card">
-      <q-card-section horizontal>
-        <q-img
-          class="col-5"
-          src="https://cdn.quasar.dev/img/parallax1.jpg"
-        />
-
-        <q-card-section>
-          {{ lorem }}
-        </q-card-section>
-      </q-card-section>
-
-      <q-separator />
-
-      <q-card-actions>
-        <q-btn flat round icon="event" />
-        <q-btn flat>
-          5:30PM
-        </q-btn>
-        <q-btn flat>
-          7:00PM
-        </q-btn>
-        <q-btn flat color="primary">
-          Reserve
-        </q-btn>
-      </q-card-actions>
-    </q-card>
-  </div>
-
   
-  <q-footer reveal elevated class="bg-dark -8 text-white">
+  <q-footer reveal elevated class="bg-dark -2 text-white">
       <q-toolbar>
         <q-toolbar-title>
-          <div>Yovan Ramón Yaune Enovore &copy; 2023</div>
+          <div class="text-subtitle1">Yovan Ramón Yaune Enovore &copy; 2023</div>
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
@@ -289,7 +289,35 @@ import { useQuasar } from 'quasar'
 export default {
   setup () {
     const $q = useQuasar()
+    const inView = ref([])
+
+    function onIntersection (entry) {
+      if (entry.isIntersecting === true) {
+        add(entry.target.dataset.id)
+      }
+      else {
+        remove(entry.target.dataset.id)
+      }
+    }
+    function add (i) {
+      remove(i)
+      inView.value.push(i)
+      inView.value.sort(sortAtoi)
+    }
+    function remove (i) {
+      let index
+      while ((index = inView.value.indexOf(i)) > -1) {
+        inView.value.splice(index, 1)
+        inView.value.sort(sortAtoi)
+      }
+    }
+    function sortAtoi (a, b) {
+      return Number(a) - Number(b)
+    }
+  
+
     return {
+      expanded: ref(false),
       slide: ref('style'),
       lorem1: 'Hola1.',
       lorem2: 'Hola4.',
@@ -301,25 +329,49 @@ export default {
       selected: ref('Food'),
       simple: [
         {
-          label: 'Relax Hotel',
+          label: 'Habilidades',
           children: [
             {
-              label: 'Food',
-              icon: 'restaurant_menu'
+              label: 'Códigos',
+              icon: 'code'
             },
             {
-              label: 'Room service',
-              icon: 'room_service'
+              label: 'Fraemworks',
+              icon: 'work'
             },
             {
-              label: 'Room view',
-              icon: 'photo'
+              label: 'Librerías',
+              icon: 'book'
             }
           ]
         }
-      ]
+      ],
+      inView,
+      onIntersection
     }
   }
 }
 
 </script>
+<style lang="sass" scoped>
+.my-card
+  width: 100%
+  max-width: 350px
+
+  
+.example-area
+  height: 300px
+.example-filler
+  height: 350px
+.in-view-item
+  transition: all 0.3s
+  display: block
+.in-view-enter, .in-view-leave-to
+  opacity: 0
+  transform: translateX(-30px)
+.in-view-leave-active
+  position: absolute
+
+
+  
+</style>

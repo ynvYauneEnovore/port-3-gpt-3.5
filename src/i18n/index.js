@@ -1,5 +1,7 @@
-import enUS from './es-BO'
+import enUS from './en-US'
+//import esBO from './es-BO'
 
 export default {
-  'es-BO': esBO
+  'en-US': enUS,
+//  'es-BO': esBO
 }
