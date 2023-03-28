@@ -33,6 +33,7 @@
         color="dark"
         size="2em"
       />
+      <q-icon color="dark" size="4em" name="smart_toy"></q-icon>
         </q-btn>
         </div>
 
@@ -85,10 +86,24 @@
               direction="up"
               color="accent"
             >
-            <ion-icon name="logo-whatsapp"></ion-icon> 
-            <q-fab-action @click="onClick" color="primary" icon="person_add" />
-            <q-fab-action @click="onClick" color="primary" icon="mail" />
-            <q-fab-action @click="onClick" color="primary" icon="phone" />
+            
+            <q-fab-action @click="onClick" color="dark">
+              <q-icon name="build"></q-icon>
+            </q-fab-action>
+
+            <q-fab-action @click="onClick" color="dark">
+              <q-icon name="add_ic_call"></q-icon>
+            </q-fab-action>
+
+            <q-fab-action @click="seamless = true" color="dark">
+              <q-icon name="interests"></q-icon>
+            </q-fab-action>
+
+            <q-fab-action @click="onClick" color="dark">
+              <q-icon name="build"></q-icon>
+            </q-fab-action>
+            
+
             </q-fab>
           </q-page-sticky>
         
@@ -99,7 +114,93 @@
       <router-view />
     </q-page-container>
   </q-layout>
+
+  <div class="q-pa-md q-gutter-sm">
+    <q-btn label="Click Me" color="primary" @click="seamless = true" />
+
+    <q-dialog v-model="seamless" seamless position="bottom">
+      <q-card style="width: 350px">
+
+        <q-card-section class="row items-center no-wrap">
+          <div>
+            <div class="text-weight-bold">Redes Sociales</div>
+            <div class="text-grey">@ramonenovore</div>
+            <div class="q-pa-md">
+    <q-btn-group spread>
+      <q-btn color="purple" label="First" icon="timeline" />
+      <q-btn color="purple" label="Second" icon="visibility" />
+      <q-btn color="purple" label="Second" icon="visibility" />
+      <q-btn color="purple" label="Second" icon="visibility" />
+      <q-btn color="purple" label="Second" icon="visibility" />
+      
+    </q-btn-group>
+  </div>
+          </div>
+
+          <q-space />
+
+         
+          <q-btn flat round icon="close" v-close-popup />
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+  </div>
   
+
+  <div class="q-pa-md row items-start q-gutter-md">
+    <q-card class="my-card">
+      <q-card-section>
+        {{ lorem }}
+      </q-card-section>
+    </q-card>
+
+    <q-card
+      class="my-card text-white"
+      style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)"
+    >
+      <q-card-section>
+        <div class="text-h6">Our Changing Planet</div>
+        <div class="text-subtitle2">by John Doe</div>
+      </q-card-section>
+
+      <q-card-section class="q-pt-none">
+        {{ lorem }}
+      </q-card-section>
+    </q-card>
+
+    <q-card dark bordered class="bg-grey-9 my-card">
+      <q-card-section>
+        <div class="text-h6">Our Changing Planet</div>
+        <div class="text-subtitle2">by John Doe</div>
+      </q-card-section>
+
+      <q-separator dark inset />
+
+      <q-card-section>
+        {{ lorem }}
+      </q-card-section>
+    </q-card>
+
+    <q-card flat bordered class="my-card">
+      <q-card-section>
+        <div class="text-h6">Our Changing Planet</div>
+      </q-card-section>
+
+      <q-card-section class="q-pt-none">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </q-card-section>
+
+      <q-separator inset />
+
+      <q-card-section>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </q-card-section>
+    </q-card>
+  </div>
+
+
 </template>
 
 <script>
@@ -119,6 +220,7 @@ export default defineComponent({
     const leftDrawerOpen = ref(false)
 
     return {
+      seamless: ref(false),
       persistent: ref(false),
       onClick () {
         console.log('Clicked on a fab action')
@@ -133,3 +235,4 @@ export default defineComponent({
   }
 })
 </script>
+
