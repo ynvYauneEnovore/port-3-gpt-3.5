@@ -19,7 +19,7 @@
             v-if="active"
             size="lg"
             icon="home"
-            color="yellow"
+            color="positive"
             flat
             round
             dense
@@ -41,28 +41,17 @@
           <img src="img/logo.png" :height="270" />
           <div class="q-mt-md text-center"></div>
         </q-carousel-slide>
-        <q-carousel-slide name="tv" class="column no-wrap flex-center">
-          <img src="img/v.png" :height="120" />
-          La IA se ha convertido en una de las principales tendencias
-          tecnológicas de los últimos años. * Las empresas están utilizando cada
-          vez más asistentes virtuales impulsados por IA, como Siri de Apple,
-          Google Assistant y Alexa de Amazon, para mejorar la interacción con
-          sus clientes. Estos asistentes virtuales pueden ser utilizados para
-          responder preguntas frecuentes, ofrecer recomendaciones personalizadas
-          y mejorar la experiencia del usuario en general.
-          <div class="q-mt-md text-center"></div>
+        <q-carousel-slide name="sabiasQue1" class="column no-wrap flex-center">
+          <h1 class="text-h6">Sabias que?</h1>
+          {{ sabiasQue1 }}
         </q-carousel-slide>
-        <q-carousel-slide name="layers" class="column no-wrap flex-center">
-          <q-icon name="layers" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem3 }}
-          </div>
+        <q-carousel-slide name="sabiasQue2" class="column no-wrap flex-center">
+          <h1 class="text-h6">Sabias que?</h1>
+          {{ sabiasQue2 }}
         </q-carousel-slide>
-        <q-carousel-slide name="map" class="column no-wrap flex-center">
-          <q-icon name="terrain" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem4 }}
-          </div>
+        <q-carousel-slide name="sabiasQue3" class="column no-wrap flex-center">
+          <h1 class="text-h6">Sabias que?</h1>
+          {{ sabiasQue3 }}
         </q-carousel-slide>
       </q-carousel>
     </div>
@@ -100,71 +89,6 @@
       </q-card>
     </div>
   </div>
-  <q-page class="">
-    <div class="q-pa-md">
-      <div class="q-pa-md row items-start q-gutter-md">
-        <q-card class="my-card" flat bordered>
-          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg" />
-
-          <q-card-section>
-            <div class="text-overline text-orange-9">Overline</div>
-            <div class="text-h5 q-mt-sm q-mb-xs">Title</div>
-            <div class="text-caption text-grey">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-          </q-card-section>
-
-          <q-card-actions>
-            <q-btn flat color="dark" label="Share" />
-            <q-btn flat color="primary" label="Book" />
-
-            <q-space />
-
-            <q-btn
-              color="grey"
-              round
-              flat
-              dense
-              :icon="expanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
-              @click="expanded = !expanded"
-            />
-          </q-card-actions>
-
-          <q-slide-transition>
-            <div v-show="expanded">
-              <q-separator />
-              <q-card-section class="text-subitle2">
-                {{ lorem1 }}
-              </q-card-section>
-            </div>
-          </q-slide-transition>
-        </q-card>
-
-        <q-card class="my-card">
-          <q-parallax src="img/yovan-1.png" :height="150" />
-
-          <q-card-section>
-            <div class="text-h6">
-              Mi enfoque se basa en la combinación de habilidades creativas y
-              técnicas, para lograr un resultado impresionante y funcional. Ya
-              sea que se trate de diseño gráfico, desarrollo web o ambas cosas,
-              me aseguro de que el resultado final sea de la más alta calidad.
-            </div>
-            <div class="text-subtitle2">by Yovam Yaune</div>
-            <q-avatar rounded>
-              <img src="https://cdn.quasar.dev/img/chaosmonkey.png" />
-            </q-avatar>
-          </q-card-section>
-        </q-card>
-      </div>
-
-      <q-video
-        :ratio="16 / 9"
-        src="https://www.youtube.com/embed/ml-npkj_LxM"
-      />
-    </div>
-  </q-page>
 
   <div class="q-pa-md">
     <q-parallax>
@@ -375,10 +299,19 @@ export default {
     return {
       expanded: ref(false),
       slide: ref("style"),
-      lorem1: "Hola1.",
-      lorem2: "Hola4.",
-      lorem3: "Hola3.",
-      lorem4: "Hola2.",
+      sabiasQue1:
+        "La realidad virtual y la realidad aumentada seguirán siendo tendencias importantes en la industria del entretenimiento y en la educación.",
+      sabiasQue2:
+        "La automatización de procesos y el uso de chatbots se incrementará en diferentes ámbitos empresariales para optimizar la atención al cliente.",
+      sabiasQue3:
+        "La ciberseguridad se convertirá en una prioridad aún mayor para las empresas, a medida que los riesgos de ciberataques sigan en aumento.",
+      sabiasQue4:
+        "La inteligencia artificial y el aprendizaje automático serán cada vez más utilizados en aplicaciones empresariales.",
+      sabiasQue5:
+        "El internet de las cosas (IoT) se expandirá aún más, abriendo nuevas oportunidades de negocio.",
+      sabiasQue6:
+        "La tecnología blockchain seguirá siendo una tendencia importante en la seguridad y la gestión de datos.",
+
       drawerLeft: ref($q.screen.width > 700),
       drawerRight: ref($q.screen.width > 500),
       splitterModel: ref(50),
