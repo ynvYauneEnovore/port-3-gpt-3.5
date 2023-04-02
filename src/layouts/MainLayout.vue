@@ -11,9 +11,6 @@
         <q-btn-dropdown class="glossy" label="DEV">
           <div class="row no-wrap q-pa-md">
             <div class="column">
-              <q-btn dense flat icon="close" close>
-                <q-tooltip class="bg-white text-primary">Close</q-tooltip>
-              </q-btn>
               <div class="text-h6 q-mb-md">Información</div>
               <q-toggle
                 color="positive"
@@ -26,70 +23,106 @@
               <q-toggle v-model="bluetooth" label="En desarrollo" disable />
               <br /><q-separator inset /><br />
               chatBot
+
               <q-btn
                 padding="xs lg"
                 color="positive"
                 round
-                @click="bar2 = true"
+                @click="basic = true"
               >
                 <q-spinner-comment color="dark" size="2em" />
                 <q-icon color="dark" size="4em" name="smart_toy"></q-icon>
               </q-btn>
+
               <q-dialog
-                v-model="bar2"
-                persistent
-                transition-show="flip-down"
-                transition-hide="flip-up"
+                v-model="basic"
+                transition-show="rotate"
+                transition-hide="rotate"
               >
-                <q-card class="bg-primary text-white">
-                  <q-bar>
-                    <q-icon name="network_wifi" />
-                    <q-icon name="network_cell" />
-                    <q-icon name="battery_full" />
-
-                    <q-space />
-
-                    <q-btn dense flat icon="close" close>
-                      <q-tooltip class="bg-white text-primary">Close</q-tooltip>
-                    </q-btn>
-                  </q-bar>
-
+                <q-card>
                   <q-card-section>
-                    <div class="text-h6">
-                      Quieres que te avise cuando el sistema chatBot este
-                      completemente integrado en mi web. Por ahora el modelo
-                      esta en desarrollo esta funcionando solo para los dev. si
-                      quieres realizr test avisame por este medio.
-
-                      <form @submit.prevent="simulateSubmit" class="q-pa-md">
-                        <!-- a simple text field watching for the enter key release -->
-                        <q-input
-                          filled
-                          color="teal"
-                          hint="Type then hit Enter key above"
-                          v-model="test"
-                        />
-
-                        <!--
-      A button with v-model set to submit.
-      v-model scope variable must be a strict Boolean
-    -->
-                        <div class="row justify-end">
-                          <q-btn
-                            type="submit"
-                            :loading="submitting"
-                            label="Save"
-                            class="q-mt-md"
-                            color="teal"
-                          >
-                            <template v-slot:loading>
-                              <q-spinner-facebook />
-                            </template>
-                          </q-btn>
-                        </div>
-                      </form>
-                    </div>
+                    <div class="text-h6">ChatBot</div>
                   </q-card-section>
+
+                  <q-card-section class="q-pt-none">
+                    <p v-for="n in 1" :key="n">
+                      El modelo de ChatBot está actualmente en fase de
+                      desarrollo y seguimos realizando pruebas. Si estás
+                      interesado en probar el modelo, por favor ponte en
+                      contacto con el desarrollador. Ten en cuenta que el acceso
+                      al modelo está limitado a un grupo privado, ya que el
+                      ChatBot se encuentra en servidores específicos. Si deseas
+                      ser parte de este grupo, envía un correo electrónico al
+                      desarrollador con tus detalles de contacto y una breve
+                      descripción de tus necesidades. Te notificaremos por
+                      correo electrónico una vez que el modelo esté listo para
+                      su implementación en producción. ¡Gracias por tu interés
+                      en nuestro proyecto!
+                    </p>
+
+                    <hr />
+                    Atte: Yovan -> yovan.yvn@inbox.ru
+
+                    <q-input
+                      filled
+                      v-model="email"
+                      suffix="@inbox.ru"
+                      input-class="text-right"
+                      label-slot
+                      clearable
+                    >
+                      <template v-slot:label>
+                        <div class="row items-center all-pointer-events">
+                          <q-icon
+                            class="q-mr-xs"
+                            color="deep-orange"
+                            size="24px"
+                            name="mail"
+                          />
+                          Email (para contacto directo dev)
+
+                          <q-tooltip
+                            class="bg-grey-8"
+                            anchor="top left"
+                            self="bottom left"
+                            :offset="[0, 8]"
+                            >Email address</q-tooltip
+                          >
+                        </div>
+                      </template>
+                    </q-input>
+                    <q-input
+                      filled
+                      input-class="text-right"
+                      label-slot
+                      clearable
+                    >
+                      <template v-slot:label>
+                        <div class="row items-center all-pointer-events">
+                          <q-icon
+                            class="q-mr-xs"
+                            color="deep-orange"
+                            size="24px"
+                            name="mail"
+                          />
+                          Email (Envia tu email para que el boot responda)
+
+                          <q-tooltip
+                            class="bg-grey-8"
+                            anchor="top left"
+                            self="bottom left"
+                            :offset="[0, 8]"
+                            >Email address</q-tooltip
+                          >
+                        </div>
+                      </template>
+                    </q-input>
+                  </q-card-section>
+
+                  <q-card-actions align="right">
+                    <q-btn flat label="Decline" color="primary" v-close-popup />
+                    <q-btn flat label="Accept" color="primary" v-close-popup />
+                  </q-card-actions>
                 </q-card>
               </q-dialog>
             </div>
@@ -228,6 +261,8 @@ export default defineComponent({
     );
 
     return {
+      email: ref("yovan.yvn"),
+      basic: ref(false),
       test,
       submitting,
       simulateSubmit,
